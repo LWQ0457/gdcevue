@@ -14,7 +14,7 @@ module.exports = (req, res) => {
   }
   // 创建代理对象并转发请求
   createProxyMiddleware({
-    target,
+    target: 'http://42.192.39.122',
     changeOrigin: true,
     pathRewrite: {
       // 通过路径重写，去除请求路径中的 `/backend`
