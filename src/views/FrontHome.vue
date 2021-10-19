@@ -82,8 +82,8 @@ export default {
       console.log(res)
       this.trader = res.data
       localStorage.setItem('userInfo', JSON.stringify(res.data))
+      this.$router.push('Infor')
     }).catch((e) => { })
-    this.$route.push('Infor')
   },
   methods: {
     showInfo(info) {
