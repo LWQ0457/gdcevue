@@ -10,7 +10,7 @@ module.exports = (req, res) => {
   // 这里使用 backend 主要用于区分 vercel serverless 的 api 路径
   // xxxxx 替换为你跨域请求的服务器 如： http://baidu.com
   if (req.url.startsWith('/api')) {
-    target = 'http://42.192.39.122'
+    target = 'http//42.192.39.122'
   }
   // 创建代理对象并转发请求
   createProxyMiddleware({
@@ -19,7 +19,7 @@ module.exports = (req, res) => {
     pathRewrite: {
       // 通过路径重写，去除请求路径中的 `/backend`
       // 例如 /backend/user/login 将被转发到 http://backend-api.com/user/login
-      '^/api/': 'http://42.192.39.122/api'
+      '^/api/': '/api'
     }
   })(req, res)
 }
