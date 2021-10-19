@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap2.2.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.css" />
+    <link rel="stylesheet" type="text/css" href="./css/account.css" />
+    <script type="text/javascript" src="./js/jquery.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <script type="text/javascript" src="./js/select2.js"></script>
+
+    <style type="text/css">
+        .login-register .control-group>.controls {
+            margin-left: 200px;
+        }
+
+        .login-register .control-group>.controls {
+            margin-top: -27px;
+        }
+
+        .login-register .control-label {
+            margin-left: 70px;
+        }
+
+        .login-register .control-group {
+            margin-top: 20px;
+            margin-left: 30px;
+        }
+
+        .breadcrumb li {
+            display: block;
+        }
+    </style>
+    <script>
+        $("#btn").bind("click", function () {
+            $.ajax({
+                //向后台请求数据的方式
+                type: 'post',
+                //请求后台的地址可以简写
+                url: "http://localhost:8080/test/registerUser5",
+                //data中的数据默认用			id=1&username=zs&password=123%realname=zhangsan传递到后台，我们可以根据contentType来指定数据的传递的格式
+                data: {
+                    id: $("#id").val(),
+                    username: $("#username").val(),
+                    password: $("#password").val(),
+                    realname: $("#realname").val()
+                },
+                //成功调用后台方法后的回调函数
+                success: function (response) {
+                    console.log(response);
+                },
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <!-- Page Container -->
+                <div class="page">
+                    <!-- Page Header -->
+                    <div class="page-head">
+                        <!-- Breadcrumbs -->
+                        <ul class="breadcrumb">
+                            <li><a href="javascript:;">首页</a></li>
+                            <li class="active">用户注册</li>
+                        </ul>
+
+                    </div>
+                    <!-- /Page Header -->
+
+                    <div class="login-register">
+                        <h2 style="color: #00a1ff;border-bottom: 1px solid #1e95ce;">用户信息</h2>
+                        <!-- 登录账号 -->
+                        <div class="control-group">
+                            <label class="control-label" for="user_login"><span>*</span> 用户名</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" autocomplete="off" type="text" name="user_login"
+                                    id="user_login" /><input value=" " type="hidden" name="_D:user_login" /><br />
+                                <span class="help-inline">6-20个字符（可使用小写字母、数字、下划线，需以字母开头），账号一旦注册成功不能修改</span>
+                            </div>
+                        </div>
+                        <!-- 登录密码 -->
+                        <div class="control-group">
+                            <label class="control-label" for="user_password"><span>*</span> 密码</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="password" name="user_password"
+                                    id="user_password" /><input value=" " type="hidden" name="_D:user_password" /><br />
+                                <span class="help-inline">8-16个字符（请使用大小写字母加特殊字符的组合密码，其中可包含数字）</span>
+                            </div>
+                        </div>
+                        <!-- 确认密码 -->
+                        <div class="control-group">
+                            <label class="control-label" for="user_confirmPassword"><span>*</span> 确认密码</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="password" name="user_confirmPassword"
+                                    id="user_confirmPassword" /><input value=" " type="hidden"
+                                    name="_D:user_confirmPassword" /><br />
+                                <span class="help-inline">请再次输入密码</span>
+                            </div>
+                        </div>
+                        <!-- 姓名 -->
+                        <div class="control-group">
+                            <label class="control-label" for="user_firstName"><span>*</span> 姓名</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="text" name="user_firstName"
+                                    id="user_firstName" /><input value=" " type="hidden"
+                                    name="_D:user_firstName" /><br />
+                                <span class="help-inline">请输入您的真实姓名</span>
+                            </div>
+                        </div>
+                        <!--企业类型-->
+                        <div class="control-group">
+                            <label class="control-label" for="org_enterpriseProperty"><span>*</span> 企业类型</label>
+                            <div class="controls">
+                                <input value=" " type="hidden" name="_D:org_enterpriseProperty"></input><select
+                                    style="width: 42%;" name="org_enterpriseProperty" id="org_enterpriseProperty">
+                                    <option value="">请选择</option>
+                                    <option>采购商(0)</option>
+                                    <option>供应商(1)</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="control-group" style="padding-left: 110px;">
+            <div class="controls">
+                <input type="button" id="btn" value="注册" style="width:53%;height:42px" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

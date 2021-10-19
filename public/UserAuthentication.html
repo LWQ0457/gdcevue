@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业认证</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap2.2.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.css" />
+    <link rel="stylesheet" type="text/css" href="./css/account.css" />
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <script type="text/javascript" src="./js/select2.js"></script>
+    <script type="text/javascript" src="./js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+
+    <style type="text/css">
+        .login-register .control-group>.controls {
+            margin-left: 200px;
+        }
+
+        .login-register .control-group>.controls {
+            margin-top: -27px;
+        }
+
+        .login-register .control-label {
+            margin-left: 70px;
+        }
+
+        .login-register .control-group {
+            margin-top: 20px;
+            margin-left: 30px;
+        }
+
+        .breadcrumb li {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript">
+        var arr_province = ["请选择省/城市", "北京市", "上海市", "天津市", "重庆市", "深圳市", "广东省"];
+        var arr_city = [
+            ["请选择城市/地区"],
+            ["东城区", "西城区", "朝阳区", "宣武区", "昌平区", "大兴区", "丰台区", "海淀区"],
+            ['宝山区', '长宁区', '丰贤区', '虹口区', '黄浦区', '青浦区', '南汇区', '徐汇区', '卢湾区'],
+            ['和平区', '河西区', '南开区', '河北区', '河东区', '红桥区', '塘古区', '开发区'],
+            ['俞中区', '南岸区', '江北区', '沙坪坝区', '九龙坡区', '渝北区', '大渡口区', '北碚区'],
+            ['福田区', '罗湖区', '盐田区', '宝安区', '龙岗区', '南山区', '深圳周边'],
+            ['广州市', '惠州市', '汕头市', '珠海市', '佛山市', '中山市', '东莞市']
+        ];
+        //网页加载完成，初始化二级菜单
+        window.onload = init; //传地址，不带括号
+        function init() {
+
+            //获取name=province和name=city的对象
+            var province = document.form1.province;
+            var city = document.form1.city;
+            //指定省份下拉中<option>标记的个数
+            province.length = arr_province.length;
+            //循环将arr_province中的数据写入到<option>标记中
+            for (var i = 0; i < arr_province.length; i++) {
+                province.options[i].text = arr_province[i];
+                province.options[i].value = arr_province[i];
+            }
+            //修改省份列表中默认选择项
+            var index = 0;
+            province.selectedIndex = index;
+            //指定城市下拉中<option>标记的个数
+            city.length = arr_city[index].length;
+            //循环将arr_city中对应的数据写入到<option>标记中
+            for (var j = 0; j < arr_city[index].length; j++) {
+                city.options[j].text = arr_city[index][j];
+                city.options[j].value = arr_city[index][j];
+            }
+        }
+        function changeSelect(index) {
+            //获取name=city的对象
+            var city = document.form1.city;
+            //指定城市下拉中<option>标记的个数
+            city.length = arr_city[index].length;
+            //循环将arr_city中对应的数据写入到<option>标记中
+            for (var j = 0; j <script arr_city[index].length; j++) {
+                city.options[j].text = arr_city[index][j];
+                city.options[j].value = arr_city[index][j];
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        $('.form_datetime').datetimepicker({
+            //language:  'fr',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            forceParse: 0,
+            showMeridian: 1
+        });
+        $('.form_date').datetimepicker({
+            language: 'fr',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
+        $('.form_time').datetimepicker({
+            language: 'fr',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <!-- Page Container -->
+                <div class="page">
+                    <!-- Page Header -->
+                    <div class="page-head">
+                        <!-- Breadcrumbs -->
+                        <ul class="breadcrumb">
+                            <li><a href="javascript:;">首页</a></li>
+                            <li class="active">企业认证</li>
+                        </ul>
+
+                    </div>
+                    <!-- /Page Header -->
+
+                    <div class="login-register">
+                        <h2 style="color: #00a1ff;border-bottom: 1px solid #1e95ce;">企业资质认定</h2>
+                        <!-- 交易用户名 -->
+                        <div class="control-group">
+                            <label class="control-label" for="user_login"><span>*</span> 用户名</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" autocomplete="off" type="text"
+                                    id="user_login" /><input value=" " type="hidden" name="_D:user_login" /><br />
+                            </div>
+                        </div>
+                        <!-- 企业名称 -->
+                        <div class="control-group">
+                            <label class="control-label" for="org_name"><span>*</span> 企业名称</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="text" name="org_name" id="org_name" /><input
+                                    value=" " type="hidden" name="_D:org_name" />
+                            </div>
+                        </div>
+                        <!-- 法人代表 -->
+                        <div class="control-group">
+                            <label class="control-label" for="org_name"><span>*</span> 法人代表</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="text" name="org_name" id="org_name" /><input
+                                    value=" " type="hidden" name="_D:org_name" />
+                            </div>
+                        </div>
+                        <!-- 注册地区 -->
+                        <div class="control-group">
+                            <label class="control-label" for="user_address"><span>*</span> 注册地区</label>
+                            <div class="controls">
+                                <form name="form1" method="post" action="">
+                                    <select class="city" name="user_nation" id="user_nation">
+                                        <option value="">国家</option>
+                                        <option>中国</option>
+                                    </select>
+                                    <select name="province" onchange="changeSelect(this.selectedIndex)"></select>
+                                    <select name="city"></select>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- 注册资金 -->
+                        <div class="control-group" id="org_capital">
+                            <label class="control-label" for="org_capital"><span>*</span> 注册资金(万元)</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="text" name="org_capital"
+                                    id="org_capital" /><input value=" " type="hidden" name="_D:org_capital" />
+                            </div>
+                        </div>
+
+                        <!-- 联系人 -->
+                        <div class="control-group" id="org_capital">
+                            <label class="control-label" for="org_capital"><span>*</span> 联系人</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="text" name="org_capital"
+                                    id="org_capital" /><input value=" " type="hidden" name="_D:org_capital" />
+                            </div>
+                        </div>
+
+                        <!-- 联系电话 -->
+                        <div class="control-group">
+                            <label class="control-label" for="user_phoneNumber">&nbsp;&nbsp;联系电话</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="text" name="user_phoneNumber"
+                                    id="user_phoneNumber" /><input value=" " type="hidden" name="_D:user_phoneNumber" />
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                        <!-- 企业邮箱 -->
+                        <div class="control-group">
+                            <label class="control-label" for="user_email"><span>*</span> 企业邮箱</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="text" name="user_email"
+                                    id="user_email" /><input value=" " type="hidden" name="_D:user_email" /><br />
+                            </div>
+                        </div>
+
+                        <!-- 营业执照 -->
+                        <div class="control-group" id="org_gs">
+                            <label class="control-label" for="org_crn"> <span>*</span>营业执照</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="text" name="org_crn" id="org_crn" /><input
+                                    value=" " type="hidden" name="_D:org_crn" />
+                                <input value="" type="file" name="org_crnFile" id="org_crnFile" /><input value=" "
+                                    type="hidden" name="_D:org_crnFile" /><br />
+                                <span class="help-inline">请您输入营业执照号，并上传jpg或gif格式的扫描件</span><br />
+                                <span class="help-inline">上传文件请勿超过2M</span>
+                            </div>
+                        </div>
+
+                        <!-- 税务登记证 -->
+                        <div class="control-group" id="org_zz">
+                            <label class="control-label" for="org_ocn"> <span>*</span>税务登记证</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="text" name="org_ocn" id="org_ocn" /><input
+                                    value=" " type="hidden" name="_D:org_ocn" />
+                                <input value="" type="file" name="org_ocnFile" /><input value=" " type="hidden"
+                                    name="_D:org_ocnFile" /><br />
+                                <span class="help-inline">请您输入税务登记证编号，并上传jpg或gif格式的扫描件</span><br />
+                                <span class="help-inline">上传文件请勿超过2M</span>
+                            </div>
+                        </div>
+
+                        <!-- 组织机构代码证 -->
+                        <div class="control-group" id="org_tx">
+                            <label class="control-label" for="org_trn"> <span>*</span>组织机构代码证</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="text" name="org_trn" id="org_trn" /><input
+                                    value=" " type="hidden" name="_D:org_trn" />
+                                <input value="" type="file" name="org_trnFile" /><input value=" " type="hidden"
+                                    name="_D:org_trnFile" /><br />
+                                <span class="help-inline">请您输入组织机构代码证编号，并上传jpg或gif格式的扫描件</span><br />
+                                <span class="help-inline">上传文件请勿超过2M</span>
+                            </div>
+                        </div>
+
+                        <!-- 煤炭经营许可证 -->
+                        <div class="control-group" id="org_slx">
+                            <label class="control-label" for="org_slx"> <span>*</span>煤炭经营许可证</label>
+                            <div class="controls">
+                                <input value="" style="width: 40%;" type="text" name="org_slx" id="org_slx" /><input
+                                    value=" " type="hidden" name="_D:org_slx" />
+                                <input value="" type="file" name="org_slxFile" /><input value=" " type="hidden"
+                                    name="_D:org_slxFile" /><br />
+                                <span class="help-inline">请您输入煤炭经营许可证编号，并上传jpg或gif格式的扫描件</span><br />
+                                <span class="help-inline">上传文件请勿超过2M</span>
+                            </div>
+                        </div>
+                        <h2 style="color: #00a1ff;border-bottom: 1px solid #1e95ce;" id="org_estoreContract_info">交易条款
+                        </h2>
+                        <div id="org_estoreContract_div" class="control-group" style="margin-top: 50px;">
+                            <div class="controls" style="margin-left: 160px;">
+                                <div style="margin-right: 75px;">
+                                    <div class="estore_contract">
+                                        <div class="estore_contract_content">
+                                            <h2>国电煤炭贸易电商平台服务条款</h2>
+                                            <p>
+                                                服务条款:本服务协议双方为国电煤炭贸易平台（以下简称平台）与会员（以下简称会员），本服务协议具有合同效力。
+                                            </p>
+                                            <p>
+                                            <h4>第一条</h4>
+                                            </p>
+                                            <p>本协议内容包括协议正文及所有平台已经发布的或将来发布的各类文件和规则。所有文件和规则为本协议不可分割的一部分，与本协议正文具有同等法律效力。
+                                            </p>
+                                            <p>
+                                                会员在使用平台提供的服务的同时，承诺接受并遵守《神华电子平台交易办法》等相关文件和规定。平台有权根据需要不时地制定、修改本协议或各类规则，如本协议有任何变更，将在平台网站上刊载公告。如会员不同意相关变更，必须停止使用"服务"。经修订的协议一经公布，立即自动生效，亦成为本协议的一部分。会员登录或继续接受服务，将表示会员接受经修订的协议。
+                                            </p>
+                                            <p>
+                                                无论会员事实上是否在注册之前认真阅读了本协议，只要点击 "同意"按钮并按照平台的注册程序成功注册为会员，即视为会员同意并签署了本协议。
+                                            </p>
+                                            <p>
+                                            <h4>第二条</h4>
+                                            </p>
+                                            <p>会员是经工商行政管理部门登记注册，从事煤炭、化工品相关行业生产、经营和消费活动的企业法人或其他经济组织。无经营资格的组织不当注册为会员或超过其民事权利或行为能力范围从事交易的，其与平台之间的协议自始无效，平台一经发现，有权立即注销该会员，并追究其使用平台"服务"的一切法律责任。
+                                            </p>
+                                            <p>
+                                                会员承诺对提交的全部资料的真实性、准确性和合法性负全部法律责任，并保证在相关资料实际发生变更时及时通知平台。
+                                            </p>
+                                            <p>
+                                            <h4>第三条</h4>会员的权利和义务
+                                            </p>
+                                            <p>
+                                                一、会员有权利拥有自己在平台的用户名及密码，并有权利使用自己的用户名及密码登录平台，以会员的名义从事交易活动。会员不得以任何形式擅自转让或授权他人使用自己在平台的用户名及密码。
+                                            </p>
+                                            <p>
+                                                二、会员有义务自行保存及修改密码，用户名和密码一经使用即为会员行为。
+                                            </p>
+                                            <p>
+                                                三、会员承诺自己在使用平台时实施的所有行为均遵守国家法律、法规和平台的相关规定以及各种社会公共利益或公共道德。遵守诚实信用的原则，不在交易过程中采取不正当竞争行为，不扰乱网上交易的正常秩序，不从事与网上交易无关的行为。如有导致任何法律后果的行为，会员将以自己的名义独立承担所有相应的法律责任。
+                                            </p>
+                                            <p>
+                                            <h4>第四条</h4>平台的权利和义务
+                                            </p>
+                                            <p>
+                                                一、平台有义务在现有技术上维护整个平台的正常运行，并努力提升和改进技术，使会员网上交易活动得以顺利进行。
+                                            </p>
+                                            <p>
+                                                二、平台对于会员在平台上的不当行为或其它任何平台认为应当终止服务的情况，有权随时作出删除相关信息、终止服务提供等处理，而无须征得会员的同意。
+                                            </p>
+                                            <p>
+                                                三、平台有权对会员的注册数据及交易行为进行查阅，发现注册数据或交易行为中存在任何问题或可疑之处，均有权向会员发出询问及要求改正的通知或者直接作出删除等处理。
+                                            </p>
+                                            <p>
+                                                四、平台对会员的注册信息和交易记录等资料负有保密义务，除法定有权机关和《电子平台交易办法》及相关制度、规定或者为会员提供服务、为合同履行、纠纷和解等外，不得向第三方透露。否则，平台须承担相应责任。
+                                            </p>
+                                            <p>
+                                                五、对于会员在平台发布的下列各类信息，平台有权在不通知会员的前提下进行删除或采取其它限制性措施，包括但不限于：
+                                            </p>
+                                            <div>
+                                                <p>
+                                                    (一) 以规避费用为目的的信息；
+                                                </p>
+                                                <p>
+                                                    (二) 以炒作信誉为目的的信息；
+                                                </p>
+                                                <p>
+                                                    (三) 平台有理由相信存在欺诈等恶意或虚假内容的信息；
+                                                </p>
+                                                <p>
+                                                    (四) 平台有理由相信与网上交易无关或不是以交易为目的的信息；
+                                                </p>
+                                                <p>
+                                                    (五) 平台有理由相信存在恶意竞价或其它试图扰乱正常交易秩序因素的信息；
+                                                </p>
+                                                <p>
+                                                    (六) 平台有理由相信该信息违反公共利益或可能严重损害平台和其它会员合法利益的。
+                                                </p>
+                                            </div>
+                                            <p>
+                                            <h4>第五条</h4>许可使用权
+                                            </p>
+                                            <p>
+                                                会员在平台发布的各类信息，会员授予平台有免费使用的权利（并有权对该权利进行再授权），使平台有权（全部或部分地）使用、复制、修订、发布。
+                                            </p>
+                                            <p>
+                                            <h4>第六条</h4>服务的中断和终止
+                                            </p>
+                                            <p>
+                                                一、对平台认定严重违反平台规则的会员，平台可自行决定终止会员的用户名、密码或会员对服务的使用，并删除（不再保存）会员在使用服务中提交的任何资料。服务终止后，平台不就终止会员接入服务而对会员或任何第三方承担任何责任。
+                                            </p>
+                                            <p>
+                                                二、会员不继续在平台参与交易，应办理会员资格注销手续，经平台审核同意，由平台注销该会员后，会员即解除与平台的协议关系。会员必须对其在注销前在平台发生的所有行为负全部责任。会员提出注销申请，已缴的会员费不作退还。
+                                            </p>
+                                            <p>
+                                                三、在下列情况下，平台可以通过注销会员的方式终止服务：
+                                            </p>
+                                            <div>
+                                                <p>
+                                                    (一)
+                                                    在会员违反本协议相关规定时，平台有权终止向会员提供服务。平台将在中断服务时通知会员。但如会员在被平台终止提供服务后，再一次直接或间接或以他人名义注册为会员的，平台有权再次单方面终止向该会员提供服务；
+                                                </p>
+                                                <p>
+                                                    (二) 平台通过会员提供的信息无法与会员取得联系时，平台有权终止向会员提供服务；
+                                                </p>
+                                                <p>
+                                                    (三) 一旦平台发现会员注册数据中主要内容是虚假的，平台有权随时终止向会员提供服务；
+                                                </p>
+                                                <p>
+                                                    (四) 本协议终止或更新时，会员明示不愿接受新的服务协议的；
+                                                </p>
+                                                <p>
+                                                    (五) 平台认为其它需终止服务的情况。
+                                                </p>
+                                            </div>
+                                            <p>
+                                                四、因会员违反法律法规或者违反本协议规定而致使平台中断、终止对会员服务的，对于服务中断、终止之前的会员交易行为依下列原则处理：
+                                            </p>
+                                            <div>
+                                                <p>
+                                                    (一) 服务中断、终止之前，会员已经上传至平台的货物，但尚未订立合同的，平台有权在中断、终止服务的同时删除此项货物的相关信息；
+                                                </p>
+                                                <p>
+                                                    (二) 服务中断、终止之前，会员已经发出买入要约，但尚未订立合同的，平台有权在中断或终止服务的同时删除会员的相关要约；
+                                                </p>
+                                            </div>
+                                            <p>
+                                                五、会员资格注销后，平台有权保留会员的注册数据及以前的交易行为记录；如会员在注销前在平台上存在违法或违反合同的行为，平台仍可行使本协议所规定的权利。
+                                            </p>
+                                            <p>
+                                            <h4>第七条</h4>责任范围
+                                            </p>
+                                            <p>
+                                                一、平台仅对本协议中列明的责任承担范围负责。
+                                            </p>
+                                            <p>
+                                                二、因交易产生的任何风险应由会员及会员的交易对方承担。
+                                            </p>
+                                            <p>
+                                                三、因下列状况导致平台无法正常运作，使会员无法使用各项服务时，平台不承担损害赔偿责任，该状况包括但不限于：
+                                            </p>
+                                            <div>
+                                                <p>
+                                                    (一) 在平台公告之系统停机维护期间；
+                                                </p>
+                                                <p>
+                                                    (二) 电信设备出现故障，致使平台不能进行数据传输的；
+                                                </p>
+                                                <p>
+                                                    (三) 因台风、地震、海啸、洪水、停电、战争、恐怖袭击等不可抗力之因素，造成平台障碍不能执行业务的；
+                                                </p>
+                                                <p>
+                                                    (四) 由于黑客攻击、电信部门技术调整或故障、网站升级、银行方面的问题等原因而造成的服务中断或者延迟；
+                                                </p>
+                                                <p>
+                                                    (五) 因上述事故造成交易或交易数据中断，恢复交易时以故障发生前系统最终记录的交易数据为有效数据。
+                                                </p>
+                                            </div>
+                                            <p>
+                                                四、平台公开提供的各种信息仅供会员参考，会员自行承担交易风险。
+                                            </p>
+                                            <p>
+                                            <h4>第八条</h4>管辖
+                                            </p>
+                                            <p>
+                                                本协议双方发生纠纷应协商解决，如协商不成引起诉讼，双方约定由签约地人民法院管辖。
+                                            </p>
+                                            <p>
+                                            <h4>第九条</h4>附则
+                                            </p>
+                                            <p>
+                                                本协议自会员在平台会员注册中点击"同意"起即为签署生效，至会员以公函形式要求取消本协议，或按平台有关规则变化时终止。
+                                            </p>
+                                            <p>
+                                                本协议可采用书面文本，作为电子文本的补充，由协议双方各执一份。
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <label class="checkbox" style="padding-left: 200px;"> <input type="checkbox"
+                                        id="checkAccept" name="checkAccept"> 我已阅读并接受《电子交易条款》
+                                </label>
+                            </div>
+                        </div>
+                        <div class="control-group" style="padding-left: 110px;margin-top: 30px;">
+                            <div class="controls">
+                                <input value="提交" style="width:53%;height:42px" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

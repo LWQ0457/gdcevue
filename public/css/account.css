@@ -1,0 +1,270 @@
+/* -----------------------------------------
+   Accounts CSS Styles
+----------------------------------------- */
+
+
+.login-register {
+  padding: 20px 0;
+}
+
+.login-register h2 {
+  margin: 0 15px 15px 15px;
+  font-size: 18px;
+  border-bottom: 1px solid #eee;
+}
+
+.login-register h2 i {
+  font-size: 13px;
+  font-style: normal;
+  color: #83d1ff;
+  margin-left: 0.5em;
+}
+
+.login-register .control-group>label {
+  width: 140px;
+}
+
+.login-register .control-group>label>span {
+  color: red;
+}
+
+.login-register .control-group>label>i {
+  font-size: 12px;
+  color: #999;
+  font-style: normal;
+}
+
+.login-register .control-group>.controls {
+  margin-left: 160px;
+  /* position: relative; suqiufang */
+}
+
+.login-register .control-group .help-inline img {
+  margin-right: 5px;
+}
+
+.login-register .control-group .help-inline {
+  font-size: 12px;
+  color: #999;
+}
+
+.login-register .control-group .help-inline a {
+  color: #3399ff;
+}
+
+a.login {
+  width: 100px;
+  margin-right: 30px;
+}
+
+a.forgot-password {
+  color: #3399ff;
+}
+
+.login-register select {
+  margin-left: 0;
+}
+
+select.province {
+  width: 75px;
+}
+
+select.county {
+  width: 150px;
+}
+
+select.city {
+  width: 150px;
+}
+
+div.toc {
+  overflow: auto;
+}
+
+.login-register .control-group>.controls label {
+  display: inline-block;
+  margin-top: 6px;
+  min-width: 6em;
+}
+
+.login-register .control-group input[type=radio]+label.error {
+  position: absolute;
+  left: 300px;
+  top: -6px;
+}
+
+.login-register .control-group input[type=checkbox]+label.error {
+  position: absolute;
+  left: 200px;
+  top: 33px;
+  white-space: nowrap;
+}
+
+.login-register .user_icon img {
+  margin-left: 40px;
+  width: 150px;
+ 
+}
+
+.login-register .user_icon a {
+  margin-left: 85px;
+  color: #3399ff;
+  display: block;
+ 
+}
+
+.login-register .company_icon img {
+  margin-left: 40px;
+  width: 150px;
+  
+}
+
+.login-register .company_icon a {
+  margin-left: 75px;
+  color: #3399ff;
+  display: block;
+
+}
+
+.login-register hr {
+
+  display: block;
+  margin-left: 40px;
+}
+
+select.business_nature {
+  width: 175px;
+}
+
+.login-register .control-group>.controls label.checkbox {
+  margin-top: -5px;
+  vertical-align: middle;
+  min-width: 120px;
+}
+
+.login-register .control-group>.controls input[type="text"],
+input[type="password"] {
+  padding-top: 6px;
+  height: auto;
+}
+
+.login-register .control-group>.controls input[type="file"] {
+  margin-top: 4px;
+}
+
+
+
+.login-register div.control-group#shippingModeDiv>.controls label.checkbox {
+  margin-top: -5px;
+  vertical-align: middle;
+  min-width: 0px;
+  margin-left: 0px;
+  white-space: nowrap;
+}
+
+.login-register div.control-group#shippingModeDiv>.controls label.checkbox:first-child {
+  margin-left: 20px;
+}
+
+.login-register div.control-grouporg_storageType>.controls label.checkbox:first-child {
+  margin-left: 20px;
+}
+
+.login-register div.control-group#shippingModeDiv>.controls label.checkbox input[type="text"] {
+  display: inline-block;
+  width: 100px;
+  height: 10px;
+}
+
+.login-register .control-group>.controls input[type="radio"] {
+  margin-top: -3px
+}
+
+
+.login-register .control-group>.controls label.checkbox input#checkAccept {
+  width: 20px;
+}
+
+
+.login-register .control-group>.controls input#org_shippingModeDesc {
+  margin: 0;
+  display: inline-block;
+  width: 100px;
+  margin-left: -70px;
+}
+
+
+
+
+div.estore_contract {
+
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: 330px;
+  overflow-y: auto;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-register .estore_contract_content h2 {
+  font-family: 'Microsoft YaHei', Arial, 'Arial Narrow';
+  font-size: 24px;
+  text-align: center;
+  border: 0;
+}
+
+.estore_contract_content h4 {
+  display: inline-block;
+  margin-right: 2em;
+  margin-left: 2em;
+}
+
+.estore_contract_content p {
+  text-indent: 2em;
+}
+
+.estore_contract_content div p {
+  margin-left: 2em;
+  text-indent: 0em;
+}
+
+
+.form-horizontal label {
+  cursor: default;
+}
+
+
+div#servReqPopup div.modal-header {
+  border-bottom: 0px;
+  border-bottom: 1px solid #eee;
+}
+
+div#servReqPopup table td label {
+  border: 0px;
+  margin-bottom: 0px;
+}
+
+div#servReqPopup table td input[type='radio'] {
+  margin-bottom: 5px;
+}
+
+div.help-message {
+  padding: 10px;
+}
+
+div.help-message table td {
+  min-width: 100px;
+  text-align: left;
+}
+
+#upd_user_form .modal.fade.in{
+  top:50% !important;
+}
+#upd_password_form .modal.fade.in{
+  top:45% !important;
+}
+#myModal .modal.fade.in{
+  top:50% !important;
+}
